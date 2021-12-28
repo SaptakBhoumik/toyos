@@ -50,7 +50,7 @@ void terminal_setcolor(uint8_t color)
 }
 
 void print_newline() {
-    terminal_column = 0;
+    terminal_column = -1;
 
     if (terminal_row < VGA_HEIGHT - 1) {
         terminal_row++;
@@ -105,5 +105,5 @@ extern "C" void main()
 	terminal_initialize();
   terminal_setcolor(VGA_COLOR_LIGHT_RED);
 	/* Newline support is left as an exercise. */
-	terminal_writestring("Hello, World!\n\n\nHello");
+	terminal_writestring("Hello, World!\nHello NewLine");
 }

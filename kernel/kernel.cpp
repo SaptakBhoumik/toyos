@@ -50,6 +50,10 @@ namespace terminal{
 		terminal_color = color;
 	}
 
+	void terminal_setcolor(uint8_t fg,uint8_t bg)
+	{
+		terminal_color = fg|bg<<4;
+	}
 	void print_newline() {
 	    terminal_column = -1;
 
@@ -105,5 +109,7 @@ extern "C" void main()
 	/* Initialize terminal interface */
 	terminal::terminal_initialize();
   terminal::terminal_setcolor(VGA_COLOR_LIGHT_RED);
+	terminal::terminal_writestring("Hello, World!\nHello NewLine\n");
+	terminal::terminal_setcolor(VGA_COLOR_LIGHT_BLUE,VGA_COLOR_LIGHT_GREEN);
 	terminal::terminal_writestring("Hello, World!\nHello NewLine");
 }

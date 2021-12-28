@@ -49,11 +49,34 @@ void terminal_setcolor(uint8_t color)
 	terminal_color = color;
 }
 
+void print_newline() {
+    terminal_column = 0;
+
+    if (terminal_row < VGA_HEIGHT - 1) {
+        terminal_row++;
+        return;
+    }
+
+    for (size_t row = 0; row < VGA_HEIGHT; row++) {
+        for (size_t col = 0; col < VGA_WIDTH; col++) {
+            auto character = terminal_buffer[col + VGA_WIDTH * row];
+            terminal_buffer[col + VGA_WIDTH * (row - 1)] = character;
+        }
+    }
+
+}
+
 void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
 {
+  if (c=='\n'){
+    print_newline();
+    return;
+  }
 	const size_t index = y * VGA_WIDTH + x;
 	terminal_buffer[index] = vga_entry(c, color);
 }
+
+
 
 void terminal_putchar(char c)
 {
@@ -82,5 +105,5 @@ extern "C" void main()
 	terminal_initialize();
   terminal_setcolor(VGA_COLOR_LIGHT_RED);
 	/* Newline support is left as an exercise. */
-	terminal_writestring("Hello, World!\n");
+	terminal_writestring("Hello, World!\n\n\nHello");
 }

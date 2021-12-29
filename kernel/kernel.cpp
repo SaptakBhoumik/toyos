@@ -104,7 +104,7 @@ namespace terminal{
 		terminal_write(data, strlen(data));
 	}
 }
-extern "C" void main()
+extern "C" void __kernal__main()
 {
 	/* Initialize terminal interface */
 	terminal::terminal_initialize();

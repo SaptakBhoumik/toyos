@@ -1,7 +1,7 @@
 global loader
 global stack_ptr
 
-extern main
+extern __kernal__main
 
 MODULEALIGN equ 1<<0
 MEMINFO equ 1<<1
@@ -25,7 +25,7 @@ loader:
   push eax
   push ebx
 
-  call main
+  call __kernal__main
 
   cli
 

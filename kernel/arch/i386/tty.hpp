@@ -1,5 +1,8 @@
-#ifndef MAIN_KERNAL_HPP
-#define MAIN_KERNAL_HPP
+#ifndef TTY_HPP
+#define TTY_HPP
+#include <stdint.h>
+#include <stddef.h>
+#include "../../../utils/utils.hpp"
 /* Hardware text mode color constants. */
 enum vga_color {
 	VGA_COLOR_BLACK = 0,

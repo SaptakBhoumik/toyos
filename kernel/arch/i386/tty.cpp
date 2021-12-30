@@ -27,15 +27,6 @@ uint8_t terminal_color = 0;
 uint16_t* terminal_buffer;
 namespace terminal{
 
-	void terminal_scroll(int line) {
-	 int loop=0;
-	 char c=0;
-
-	 for(loop = line * (VGA_WIDTH * 2) + 0xB8000; loop < VGA_WIDTH * 2; loop++) {
-		 c = loop;
-		 // (loop - (VGA_WIDTH * 2)) = c;
-	 }
-	}
 	void terminal_initialize(void)
 	{
 		terminal_row = 0;

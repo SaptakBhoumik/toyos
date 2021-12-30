@@ -1,0 +1,5 @@
+iso/boot/toyos
+*.iso
+*.o
+*.out
+build

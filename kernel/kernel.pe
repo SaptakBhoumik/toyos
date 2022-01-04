@@ -1,0 +1,52 @@
+Cppcode(#include <stdint.h>)
+COLS:uint8_t=80
+ROWS:uint8_t= 25
+
+enum color:
+  BLACK =0,
+  WHITE = 7
+
+
+video:*uint16_t =  cast<*uint16_t>(0xB8000);
+
+def putc(x:uint8_t,c:*char):
+    y:uint8_t=0
+    fg:color=color.WHITE
+    bg:color=color.BLACK
+    Cppcode(video[y * COLS + x] = (bg << 12) | (fg << 8) | c[0];)
+
+
+def clear(bg:color):
+    x:uint8_t = 0
+    y:uint8_t = 0
+    while y < ROWS:
+        while x < COLS:
+            putc(x,cast<*char>(" "))
+            x=x+1
+        y=y+1
+
+export def __kernal__main():
+    clear(color.BLACK)
+    putc(0,cast<*char>("H"))
+    putc(1,cast<*char>("E"))
+    putc(2,cast<*char>("L"))
+    putc(3,cast<*char>("L"))
+    putc(4,cast<*char>("O"))
+    putc(5,cast<*char>(" "))
+    putc(6,cast<*char>("O"))
+    putc(7,cast<*char>("S"))
+    putc(8,cast<*char>(" "))
+    putc(9,cast<*char>("I"))
+    putc(10,cast<*char>("N"))
+    putc(11,cast<*char>(" "))
+    putc(12,cast<*char>("P"))
+    putc(13,cast<*char>("E"))
+    putc(14,cast<*char>("R"))
+    putc(15,cast<*char>("E"))
+    putc(16,cast<*char>("G"))
+    putc(17,cast<*char>("R"))
+    putc(18,cast<*char>("I"))
+    putc(19,cast<*char>("N"))
+    putc(20,cast<*char>("E"))
+    while True:
+        pass

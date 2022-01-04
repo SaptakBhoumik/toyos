@@ -3,3 +3,4 @@ iso/boot/toyos
 *.o
 *.out
 build
+temp.cc

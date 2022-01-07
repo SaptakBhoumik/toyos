@@ -7,7 +7,7 @@ enum color:
   WHITE = 7
 
 
-video:*uint16_t =  cast<*uint16_t>(0xB8000);
+video:*uint16_t =  cast<*uint16_t>(0xB8000)
 
 def putc(x:uint8_t,c:*char):
     y:uint8_t=0

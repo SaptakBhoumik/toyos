@@ -5,7 +5,7 @@ Made in peregrine
 
 
 ```
-make
+python3 build.py
 ```
 
 
